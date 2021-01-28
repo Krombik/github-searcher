@@ -15,8 +15,7 @@ import { ThemeProvider } from "styled-components";
 
 const selectData = createSelector(
   (state: State) => state.common.dark,
-  (state: State) => state.common.token,
-  (dark, token) => ({ dark, token })
+  (dark) => ({ dark })
 );
 
 const App: VFC = () => {

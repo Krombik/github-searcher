@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import "styled-components/macro";
 import Alert from "containers/common/Alert";
 import Grid from "@material-ui/core/Grid";
+import Header from "./Header";
 
 const Layout: FC = ({ children }) => (
   <>
@@ -16,6 +17,7 @@ const Layout: FC = ({ children }) => (
       `}
       direction="column"
     >
+      <Header />
       {children}
     </Grid>
     <Alert />

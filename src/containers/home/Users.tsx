@@ -2,8 +2,9 @@ import React, { VFC } from "react";
 import Grid from "@material-ui/core/Grid";
 import { HomeData } from "types/home";
 import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
 import "styled-components/macro";
+import MuiLink from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 
 type Props = {
   data: HomeData;
@@ -32,7 +33,14 @@ const Users: VFC<Props> = ({ data }) => {
               </Avatar>
             </Grid>
             <Grid item>
-              <Typography variant="body1">{item.login}</Typography>
+              <MuiLink
+                component={Link}
+                to={`/${item.login}`}
+                color="inherit"
+                underline="always"
+              >
+                {item.login}
+              </MuiLink>
             </Grid>
           </Grid>
         </Grid>

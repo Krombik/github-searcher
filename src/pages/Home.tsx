@@ -8,10 +8,11 @@ import UsersContainer from "containers/home/UsersContainer";
 
 const Home: VFC = memo(() => {
   const { search } = useQueryParams<SearchQueryType>();
+
   return (
     <Gutter>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12}>
           <FilterInput queryKey="search" label="Search" />
         </Grid>
         {search && <UsersContainer search={search} />}

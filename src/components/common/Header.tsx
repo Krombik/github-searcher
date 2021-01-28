@@ -5,6 +5,8 @@ import "styled-components/macro";
 import SettingsDial from "containers/header/SettingsDial";
 import { ThemeProps } from "types";
 import { gutterSpacing } from "./Gutter";
+import MuiLink from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 
 const Header: VFC = memo(() => (
   <AppBar
@@ -25,11 +27,18 @@ const Header: VFC = memo(() => (
       `}
     >
       <Grid item>
-        <Grid container alignItems="center" spacing={2}>
-          <Grid item>
-            <SettingsDial />
-          </Grid>
-        </Grid>
+        <MuiLink
+          component={Link}
+          to="/"
+          color="inherit"
+          underline="none"
+          variant="h5"
+        >
+          GitHub Searcher
+        </MuiLink>
+      </Grid>
+      <Grid item>
+        <SettingsDial />
       </Grid>
     </Grid>
   </AppBar>

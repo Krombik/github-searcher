@@ -1,16 +1,14 @@
 import React, { VFC } from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "pages/Home";
-import Header from "components/common/Header";
+import User from "pages/User";
 
 const AppRouter: VFC = () => {
   return (
-    <>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/:user" component={User} />
+    </Switch>
   );
 };
 
