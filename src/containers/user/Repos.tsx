@@ -33,7 +33,7 @@ const Repos: VFC<Props> = ({ data }) => {
               </Link>
             </Grid>
             <Grid item>
-              <Grid container xs spacing={2} justify="flex-end">
+              <Grid container spacing={2} justify="flex-end">
                 <Grid
                   item
                   container
