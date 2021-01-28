@@ -15,22 +15,24 @@ const Users: VFC<Props> = ({ data }) => {
     <>
       {data.items.map((item, index) => (
         <Grid item key={index} xs={12}>
-          <Grid
-            container
-            spacing={3}
-            alignItems="center"
-            justify="space-between"
-          >
+          <Grid container spacing={3} alignItems="center">
             <Grid item>
-              <Avatar
-                src={item.avatar_url}
-                css={`
-                  height: 75px;
-                  width: 75px;
-                `}
+              <MuiLink
+                component={Link}
+                to={`/${item.login}`}
+                color="inherit"
+                underline="none"
               >
-                {item.login}
-              </Avatar>
+                <Avatar
+                  src={item.avatar_url}
+                  css={`
+                    height: 75px;
+                    width: 75px;
+                  `}
+                >
+                  {item.login}
+                </Avatar>
+              </MuiLink>
             </Grid>
             <Grid item>
               <MuiLink
