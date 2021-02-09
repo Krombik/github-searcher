@@ -1,8 +1,8 @@
 export type RepoT = {
   html_url: string;
-  forks: number;
-  stargazers_count: number;
   name: string;
+  language: string;
+  description: string;
 };
 
 export type RepoData = {

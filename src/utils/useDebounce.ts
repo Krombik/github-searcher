@@ -1,30 +1,21 @@
-import { useState, useEffect, useRef, Dispatch, SetStateAction } from "react";
+import { useEffect, useRef } from "react";
 
 const useDebounce = <T>(
   value: T,
+  onDebounce: (newValue: T) => void,
   delay: number
-): [
-  debouncedValue: T,
-  prevValue: T,
-  resetDebouncedValue: Dispatch<SetStateAction<T>>
-] => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-  const prevValue = useRef(debouncedValue);
+) => {
+  const isNotInitialMount = useRef(false);
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      if (debouncedValue !== value) {
-        prevValue.current = debouncedValue;
-        setDebouncedValue(value);
-      }
-    }, delay);
+    if (isNotInitialMount.current) {
+      const handler = setTimeout(() => onDebounce(value), delay);
 
-    return () => {
-      clearTimeout(handler);
-    };
+      return () => clearTimeout(handler);
+    } else {
+      isNotInitialMount.current = true;
+    }
   }, [value, delay]);
-
-  return [debouncedValue, prevValue.current, setDebouncedValue];
 };
 
 export default useDebounce;

@@ -3,6 +3,8 @@ import "styled-components/macro";
 import Alert from "containers/common/Alert";
 import Grid from "@material-ui/core/Grid";
 import Header from "./Header";
+import UserSearchInput from "containers/home/UserSearchInput";
+import Gutter from "./Gutter";
 
 const Layout: FC = ({ children }) => (
   <>
@@ -18,7 +20,16 @@ const Layout: FC = ({ children }) => (
       direction="column"
     >
       <Header />
-      {children}
+      <Gutter>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4}>
+            <UserSearchInput />
+          </Grid>
+          <Grid item xs={12} md={8}>
+            {children}
+          </Grid>
+        </Grid>
+      </Gutter>
     </Grid>
     <Alert />
   </>

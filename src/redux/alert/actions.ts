@@ -13,7 +13,8 @@ export const setAlert = (
     payload = {
       show,
       text:
-        message || status === 401
+        message ||
+        (status === 401
           ? "Unauthorized"
           : status === 403
           ? "Access denied"
@@ -21,7 +22,7 @@ export const setAlert = (
           ? "Not Found"
           : status === 500
           ? "Internal Server Error"
-          : "Something going wrong",
+          : "Something going wrong"),
     };
   } else {
     payload = { show };
