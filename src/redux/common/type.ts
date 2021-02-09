@@ -1,6 +1,5 @@
 export enum ActionTypes {
   SET_DARK = "SET_DARK",
-  SET_OFFSET = "SET_OFFSET",
 }
 
 type SetDark = {
@@ -8,9 +7,4 @@ type SetDark = {
   payload: boolean;
 };
 
-type SetOffset = {
-  type: ActionTypes.SET_OFFSET;
-  payload: number;
-};
-
-export type CommonActions = SetDark | SetOffset;
+export type CommonActions = SetDark;

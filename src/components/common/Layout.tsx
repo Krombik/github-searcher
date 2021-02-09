@@ -3,8 +3,9 @@ import "styled-components/macro";
 import Alert from "containers/common/Alert";
 import Grid from "@material-ui/core/Grid";
 import Header from "./Header";
-import UserSearchInput from "containers/home/UserSearchInput";
+import UserSearchInput from "containers/user/UserSearchInput";
 import Gutter from "./Gutter";
+import UserSearchHistory from "containers/user/UserSearchHistory";
 
 const Layout: FC = ({ children }) => (
   <>
@@ -21,13 +22,18 @@ const Layout: FC = ({ children }) => (
     >
       <Header />
       <Gutter>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <UserSearchInput />
+        <Grid item xs={12} md={3}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <UserSearchInput />
+            </Grid>
+            <Grid item xs={12}>
+              <UserSearchHistory />
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={8}>
-            {children}
-          </Grid>
+        </Grid>
+        <Grid item xs={12} md={9}>
+          {children}
         </Grid>
       </Gutter>
     </Grid>

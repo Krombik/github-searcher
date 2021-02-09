@@ -2,12 +2,10 @@ import { ActionTypes, CommonActions } from "./type";
 
 type State = {
   dark: boolean;
-  offset: number;
 };
 
 const initialState: State = {
   dark: true,
-  offset: 20,
 };
 
 export default function reducer(
@@ -19,11 +17,6 @@ export default function reducer(
       return {
         ...state,
         dark: action.payload,
-      };
-    case ActionTypes.SET_OFFSET:
-      return {
-        ...state,
-        offset: action.payload,
       };
     default:
       return state;

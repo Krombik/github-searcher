@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   * {
     &::-webkit-scrollbar {
-      width: 5px;
+      width: 8px;
       &-track {
         background: rgba(0,0,0,.1);
         border-radius: 5px;
@@ -18,7 +18,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   body {
-    overflow-x: hidden;
     min-width: 320px; 
   }
 `;

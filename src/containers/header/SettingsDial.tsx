@@ -4,7 +4,6 @@ import SpeedDialAction from "@material-ui/lab/SpeedDialAction";
 import TuneIcon from "@material-ui/icons/Tune";
 import IconButton from "@material-ui/core/IconButton";
 import ThemeSwitcher from "./ThemeSwitcher";
-import OffsetSelect from "./OffsetSelect";
 import SpeedDial from "@material-ui/lab/SpeedDial";
 import { ThemeProps } from "types";
 
@@ -71,7 +70,6 @@ const SettingsDial: VFC = () => {
       direction="down"
     >
       <SpeedDialAction icon={<ThemeSwitcher />} tooltipTitle="Switch theme" />
-      <SpeedDialAction icon={<OffsetSelect />} tooltipTitle="Items per page" />
     </SpeedDial>
   );
 };

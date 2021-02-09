@@ -2,6 +2,7 @@ import { persistReducer, PersistConfig } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import commonReducer from "./common/reducer";
 import alertReducer from "./alert/reducer";
+import searchReducer from "./search/reducer";
 import { combineReducers } from "redux";
 
 const commonConfig: PersistConfig<any> = {
@@ -13,4 +14,5 @@ const commonConfig: PersistConfig<any> = {
 export const combinedReducer = combineReducers({
   common: persistReducer(commonConfig, commonReducer),
   alert: alertReducer,
+  search: searchReducer,
 });

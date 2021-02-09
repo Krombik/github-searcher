@@ -1,3 +1,5 @@
+export type SearchQueryType = { q?: string };
+
 export type UserShortT = {
   avatar_url: string;
   events_url: string;
@@ -20,19 +22,8 @@ export type UserShortT = {
   url: string;
 };
 
-export interface UserT extends UserShortT {
-  name: string;
-  company: string | null;
-  blog: string | null;
-  location: string | null;
-  email: string | null;
-  hireable: string | null;
-  bio: string | null;
-  twitter_username: string | null;
-  public_repos: number;
-  public_gists: number;
-  followers: number;
-  following: number;
-  created_at: string;
-  updated_at: string;
+export interface UsersData {
+  incomplete_results: boolean;
+  items: UserShortT[];
+  total_count: number;
 }

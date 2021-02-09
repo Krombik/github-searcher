@@ -7,8 +7,8 @@ import useDebounce from "utils/useDebounce";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { useSWRInfinite } from "swr";
 import { FetchRV } from "types";
-import { UserShortT } from "types/user";
-import { HomeData } from "types/home";
+import { SearchQueryType, UserShortT } from "types/user";
+import { UsersData } from "types/user";
 import fetcher from "utils/fetcher";
 import APIPaths from "api/apiAddresses";
 import debounce from "lodash.debounce";
@@ -17,9 +17,10 @@ import SearchListbox, {
 } from "containers/common/SearchListbox";
 import { SEARCH_VARIANTS_COUNT } from "utils/constant";
 import MuiLink from "@material-ui/core/Link";
+import "styled-components/macro";
 
 const UserSearchInput: VFC = () => {
-  const queryParams = useQueryParams<{ q?: string }>();
+  const queryParams = useQueryParams<SearchQueryType>();
 
   const currFilter = queryParams.q ?? "";
 
@@ -51,7 +52,7 @@ const UserSearchInput: VFC = () => {
     }
   }, [currFilter]);
 
-  const { data, size, setSize } = useSWRInfinite<FetchRV<HomeData>>(
+  const { data, size, setSize } = useSWRInfinite<FetchRV<UsersData>>(
     (page) =>
       currFilter
         ? stringifyUrl(
@@ -72,12 +73,12 @@ const UserSearchInput: VFC = () => {
 
   const loadMore = useCallback(
     debounce(() => {
-      setSize((size) => size + 1);
+      setSize((size) => size + 1); //debounce to prevent blocking due to a large number of requests
     }, 500),
     []
   );
 
-  const prevData = useRef<FetchRV<HomeData>[]>();
+  const prevData = useRef<FetchRV<UsersData>[]>();
 
   useEffect(() => {
     if (data) prevData.current = data;
@@ -112,6 +113,10 @@ const UserSearchInput: VFC = () => {
           to={`/${option.login}`}
           color="inherit"
           underline="always"
+          css={`
+            display: flex;
+            width: 100%;
+          `}
         >
           {option.login}
         </MuiLink>

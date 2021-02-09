@@ -7,10 +7,3 @@ export const setDark = (isDark: boolean): ThunkResult => (dispatch) => {
     payload: isDark,
   });
 };
-
-export const setOffset = (offset: number): ThunkResult => (dispatch) => {
-  dispatch({
-    type: ActionTypes.SET_OFFSET,
-    payload: offset,
-  });
-};
